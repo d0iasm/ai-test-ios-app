@@ -9,13 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ScrollView {
+            VStack {
+                Spacer()
+                
+                /*
+                Link("Wikipedia: Transformer", destination: URL(string: "https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)")!).onLongPressGesture(perform: {
+                   print("long pressed!")
+                   print(executeGpt2())
+                })
+                
+                Spacer()
+                
+                Link("Wikipedia: Transformer", destination: URL(string: "https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)")!).onLongPressGesture(perform: {
+                   print("long pressed!")
+                })
+                 */
+                
+                Spacer()
+                
+                Text("summarize the page!").onLongPressGesture(perform: {
+                   print("long pressed!")
+                   //print(executeGpt2())
+                    sendRequestToOpenAI(url: "https://en.wikipedia.org/wiki/Large_language_model22222")
+                })
+                
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
