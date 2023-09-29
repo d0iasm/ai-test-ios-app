@@ -9,12 +9,22 @@ import Foundation
 
 func executeGpt2() -> String {
     let task = NSTask.init()
-    //let path = FileManager.default.currentDirectoryPath
-    //return path
+    
+    let fileManager = FileManager.default
+    let path = FileManager.default.currentDirectoryPath
+    let bundlePath = Bundle.main
+    let resourcePath = Bundle.main.resourcePath!
+    print(fileManager)
+    print(path)
+    print(bundlePath)
+    print(resourcePath)
     
     task?.setLaunchPath("/Users/asamidoi/ai_research/ggml/build/bin/gpt-2")
-    //task?.arguments = ["-m", "/Users/asamidoi/ai_research/ggml/build/models/gpt-2-117M/ggml-model.bin", "-p", "Summarize ML within 200 words"]
-    task?.arguments = ["-m", "/Users/asamidoi/ai_research/ggml/build/models/gpt-2-117M/ggml-model.bin", "-p", "Visit the page user provides and summarize the page within 200 words"]
+    //task?.setLaunchPath(basePath + "/gpt-2")
+    
+    task?.arguments = ["-m", "/Users/asamidoi/ai_research/ggml/build/models/gpt-2-117M/ggml-model.bin", "-p", "Summarize the word 'machine learning' within 200 words"]
+    //task?.arguments = ["-m", "/Users/asamidoi/ai_research/ggml/build/models/gpt-2-117M/ggml-model.bin", "-p", "Visit the page user provides and summarize the page within 200 words"]
+    //task?.arguments = ["-m", basePath + "/ggml-model.bin", "-p", "Summarize the word of 'Large Language Model' within 200 words"]
     
     // Create a Pipe and make the task
     // put all the output there

@@ -28,12 +28,15 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                Text("summarize the page!").onLongPressGesture(perform: {
+                Text("summarize the word of 'machine learning'").onLongPressGesture(perform: {
                    print("long pressed!")
-                   //print(executeGpt2())
-                    sendRequestToOpenAI(url: "https://en.wikipedia.org/wiki/Large_language_model22222")
+                   print(executeGpt2())
+                    //sendRequestToOpenAI(url: "https://en.wikipedia.org/wiki/Large_language_model22222")
                 })
                 
+                Text("summarize the page of large language model").onLongPressGesture(perform: {
+                    sendRequestToOpenAI(url: "https://en.wikipedia.org/wiki/Large_language_model")
+                })
             }
             .padding()
         }
